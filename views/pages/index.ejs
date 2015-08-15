@@ -36,7 +36,9 @@
 <script>
 function submit() {
   object = {name: $('#name').val(), email: $('#email').val(), host: $('#host').val(), location: $('#location').val(), description: $('#description').val(), qualifications: $('#qualifications').val(), tags: $('#tags').val(), policy: $('#policy').val(), time: [Date.now(), Date.now() + 1000000], coordinates: [$('#lattitude').val(), $('#longitude').val()]}
-$.post('/events', {event: object})
+$.post('/events', {event: object}, function() {
+  console.log('success');
+})
 }
 
 </script>
