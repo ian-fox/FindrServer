@@ -18,6 +18,7 @@ app.get('/', function(request, response) {
 
 app.get('/events', function(request, response) {
   fs.readFile('events.json', function(err, events) {
+    if (err) return response.send(err);
     response.send(events.toString());
   });
 });
