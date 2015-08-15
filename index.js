@@ -25,7 +25,7 @@ app.get('/events', function(request, response) {
       done();
       if (err) {
         console.error(err);
-        response.send('Error ' + err);
+        response.status(503).send('Error ' + err);
       } else {
         response.json(result.rows);
       }
@@ -42,7 +42,7 @@ app.post('/events', function(request, response) {
       done();
       if (err) {
         console.error(err);
-        response.status(200).send('Error ' + err);
+        response.status(503).send('Error ' + err);
       } else {
         response.status(200).send(result.rows[0].id);
       }
