@@ -8,32 +8,36 @@
 <div class="container">
   <form id="form" action="https://afternoon-castle-4785.herokuapp.com/events" method="">
     Event Name: <br>
-    <input type="text" name="name"><br><br>
+    <input type="text" id="name"><br><br>
     Email: <br>
-    <input type="text" name="email"><br><br>
+    <input type="text" id="email"><br><br>
     Host: <br>
-    <input type="text" name="host-name"><br><br>
+    <input type="text" id="host-name"><br><br>
     Location: <br>
-    <input type="text" name="location"><br><br>
+    <input type="text" id="location"><br><br>
     Description<br>
-    <input type="text" name="description"><br><br>
+    <input type="text" id="description"><br><br>
     Qualifications<br>
-    <input type="text" name="qualifications"><br><br>
+    <input type="text" id="qualifications"><br><br>
     Tags<br>
-    <input type="text" name="tags"><br><br>
+    <input type="text" id="tags"><br><br>
     Policy<br>
-    <input type="text" name="policy"><br><br>
+    <input type="text" id="policy"><br><br>
     Time<br>
-    <input type="datetime" name="time"><br><br>
+    <input type="datetime" id="time"><br><br>
     Coordinates:<br>
-    <input type="number" name="coordinates"><br><br>
+    <input type="number" id="lattitude">
+    <input type="number" id="longitude"><br><br>
 
-    <input type="submit" value="Submit"><br><br>
+    <button onclick="submit();">Submit</button><br><br>
   </form>
 </div>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
-
+function submit() {
+  object = {name: $('#name').val(), email: $('#email').val(), host: $('#host').val(), location: $('#location').val(), description: $('#description').val(), qualifications: $('#qualifications').val(), tags: $('#tags').val(), policy: $('#policy').val(), time: [Date.now(), Date.now() + 1000000], coordinates: [$('#lattitude').val(), $('#longitude').val()]}
+$.post('/events', {event: object})
+}
 
 </script>
 </body>
