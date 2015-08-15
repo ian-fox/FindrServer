@@ -25,7 +25,9 @@ app.get('/events', function(request, response) {
         console.error(err);
         response.status(500).json('Error ' + err);
       } else {
-        response.json(result.rows);
+        response.json(result.rows.map(function(event) {
+          return event.event;
+        }));
       }
     })
   });
