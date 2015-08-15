@@ -30,9 +30,10 @@ app.get('/events', function(request, response) {
 
 app.post('/events', function(request, response) {
   request.event = {"hello": "world"};
-  request.id = 2;
+  query = 'insert into events (event) values (\'' + JSON.stringify(request.event) + '\');';
+  console.log(query);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    client.query('insert into events values (' + request.id + ' \'' + JSON.stringify(request.event) + '\');', function(err, result) {
+    client.query(query, function(err, result) {
       done();
       if (err) {
         console.error(err);
