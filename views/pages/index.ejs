@@ -9,8 +9,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
 window.submitForm = function submitForm() {
-  console.log('test');
-  object = {"host-name": $('#host-name').val(), name: $('#name').val(), email: $('#email').val(), host: $('#host').val(), location: $('#location').val(), description: $('#description').val(), qualifications: $('#qualifications').val(), tags: $('#tags').val(), policy: $('#policy').val(), time: [Date.now(), Date.now() + 1000000], coordinates: [$('#lattitude').val(), $('#longitude').val()]}
+  var date = new Date($('#time').val());
+  object = {"host-name": $('#host-name').val(), name: $('#name').val(), email: $('#email').val(), host: $('#host').val(), location: $('#location').val(), description: $('#description').val(), qualifications: $('#qualifications').val(), tags: $('#tags').val(), policy: $('#policy').val(), time: [date, date + 1000000], coordinates: [$('#lattitude').val(), $('#longitude').val()]}
     $.post('/events', {event: JSON.stringify(object)}, function() {
       console.log('success');
     });
@@ -36,7 +36,7 @@ window.submitForm = function submitForm() {
     Policy<br>
     <input type="text" id="policy"><br><br>
     Time<br>
-    <input type="datetime" id="time"><br><br>
+    <input type="datetime-local" id="time"><br><br>
     Coordinates:<br>
     <input type="number" id="lattitude">
     <input type="number" id="longitude"><br><br>
