@@ -1,6 +1,9 @@
+var bodyParser = require('body-parser');
 var express = require('express');
 var pg = require('pg');
 var app = express();
+app.use(bodyParser.json());
+app.use(express.json());
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -29,6 +32,7 @@ app.get('/events', function(request, response) {
 });
 
 app.post('/events', function(request, response) {
+  console.log(request.body);
   request.event = {"hello": "world"};
   query = 'insert into events (event) values (\'' + JSON.stringify(request.event) + '\') returning id;';
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
