@@ -28,8 +28,9 @@ id of newly created event
  * `times`: An array of `Time` objects.
  * `qualifications`: An array of `Qualification` objects.
  * `name`: The name of the event.
- * `contact`: A email address.
- * `location`: A [latitude, longitude] pair.
+ * `contact`: An email address.
+ * `location`: An address, room number, etc
+ * 'coordinates': A [latitude, longitude] pair.
  * `policy`: One of `"drop-in"`, `"arrive-at-start"`.
  * `tags`: An array of strings.
  * `id`: An integer uniquely identifying the event.
