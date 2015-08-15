@@ -1,4 +1,5 @@
 var express = require('express');
+var fs = require('fs');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
@@ -12,6 +13,14 @@ app.set('view engine', 'ejs');
 app.get('/', function(request, response) {
   response.render('pages/index');
 });
+
+app.get('/events', function(request, response) {
+  fs.createReadStream('events.json').pipe(response);
+});
+
+app.post('/events', function(request, response) {
+  
+})
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

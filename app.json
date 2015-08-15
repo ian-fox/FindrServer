@@ -1,8 +1,6 @@
 {
-  "name": "Node.js Getting Started",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "http://node-js-sample.herokuapp.com/node.svg",
-  "keywords": ["node", "express", "static"],
+  "name": "Findr",
+  "description": "An app to find events near you",
+  "repository": "https://github.com/ian-fox/findrserver",
   "image": "heroku/node"
 }
