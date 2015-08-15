@@ -2,7 +2,11 @@ var express = require('express');
 var fs = require('fs');
 var app = express();
 
-// create 
+// create database
+fs.open('events.json', 'w', function(err, file) {
+  if (err) return err;
+  fs.write(file, '{"Hello": "World"}');
+});
 
 app.set('port', (process.env.PORT || 5000));
 
