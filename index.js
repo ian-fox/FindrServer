@@ -8,6 +8,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
 var jsonParser = bodyParser.json();
+var ueParser = bodyParser.urlencoded({extended: false});
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -31,7 +32,7 @@ app.get('/events', function(request, response) {
   });
 });
 
-app.post('/events', jsonParser, function(request, response) {
+app.post('/events', ueParser, function(request, response) {
   console.log(request);
   request.event = {"hello": "world"};
   query = 'insert into events (event) values (\'' + JSON.stringify(request.event) + '\') returning id;';
