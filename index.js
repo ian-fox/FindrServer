@@ -29,9 +29,9 @@ app.get('/events', function(request, response) {
 });
 
 app.post('/events', function(request, response) {
+  console.log(request);
   request.event = {"hello": "world"};
   query = 'insert into events (event) values (\'' + JSON.stringify(request.event) + '\');';
-  console.log(query);
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query(query, function(err, result) {
       done();
@@ -39,12 +39,15 @@ app.post('/events', function(request, response) {
         console.error(err);
         response.send('Error ' + err);
       } else {
-        console.log(result.fields);
         response.send("Success!");
       }
     })
   });
-})
+});
+
+app.put('/events', function(request, response) {
+  request.event = {"hello": "world"};
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
