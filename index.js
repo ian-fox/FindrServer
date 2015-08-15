@@ -38,7 +38,7 @@ app.post('/events', function(request, response) {
         console.error(err);
         response.send('Error ' + err);
       } else {
-        response.send(200, result.rows[0].id);
+        response.status(200).send(result.rows[0].id);
       }
     })
   });
