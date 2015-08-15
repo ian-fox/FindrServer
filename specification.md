@@ -31,7 +31,6 @@ id of newly created event
  * `contact`: A email address.
  * `location`: A [latitude, longitude] pair.
  * `policy`: One of `"drop-in"`, `"arrive-at-start"`.
- * `note`: Other information, e.g. room #.
  * `tags`: An array of strings.
  * `id`: An integer uniquely identifying the event.
  * `description`: A short description of the event.
