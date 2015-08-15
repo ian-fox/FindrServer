@@ -13,12 +13,16 @@ Result: JSON Array of `Event` objects.
  * `name`: A short description of the event.
  * `contact`: A email address.
  * `location`: A [latitude, longitude] pair.
+ * `policy`: One of `"drop-in"`, `"arrive-at-start"`.
  * `note`: Other information, e.g. room #.
+ * `tags`: An array of strings.
 
 ## `Time` object specification:
-(under construction)
+ * `type`: Exactly the string `"duration"`.
+ * `start`: (for `duration`) The timestamp of the start time.
+ * `end`: (for `duration`) The timestamp of the end time.
 
 ## `Qualification` object specification:
-(under construction)
+(not yet, leave qualifications array blank for now)
 
 POST /event
