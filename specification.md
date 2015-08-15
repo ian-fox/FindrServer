@@ -33,7 +33,6 @@ id of newly created event
  * `coordinates`: A [latitude, longitude] pair.
  * `policy`: One of `"drop-in"`, `"arrive-at-start"`.
  * `tags`: An array of strings.
- * `id`: An integer uniquely identifying the event.
  * `description`: A short description of the event.
 
 ## `Time` object specification:
