@@ -15,11 +15,15 @@ app.get('/', function(request, response) {
 });
 
 app.get('/events', function(request, response) {
-  fs.createReadStream('events.json').pipe(response);
+  fs.readFile('events.json', function(events) {
+    response.json(events);
+  });
 });
 
 app.post('/events', function(request, response) {
-  
+  fs.readFile('events.json', function(events) {
+    console.log(events);
+  });
 })
 
 app.listen(app.get('port'), function() {
