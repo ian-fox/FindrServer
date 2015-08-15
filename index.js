@@ -39,7 +39,7 @@ app.post('/events', function(request, response) {
         console.error(err);
         response.send('Error ' + err);
       } else {
-        console.log(result);
+        console.log(result.fields);
         response.send("Success!");
       }
     })
