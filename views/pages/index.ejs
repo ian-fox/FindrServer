@@ -10,6 +10,7 @@
 <script>
 window.submitForm = function submitForm() {
   var date = new Date($('#time').val());
+  date = date.getTime() / 1000;
   object = {"host-name": $('#host-name').val(), name: $('#name').val(), email: $('#email').val(), host: $('#host').val(), location: $('#location').val(), description: $('#description').val(), qualifications: $('#qualifications').val(), tags: $('#tags').val(), policy: $('#policy').val(), time: [date, date + 1000000], coordinates: [$('#lattitude').val(), $('#longitude').val()]}
     $.post('/events', {event: JSON.stringify(object)}, function() {
       console.log('success');
