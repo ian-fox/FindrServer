@@ -1,12 +1,6 @@
 var express = require('express');
-var fs = require('fs');
+var pg = require('pg');
 var app = express();
-
-// create database
-fs.open('events.json', 'w', function(err, file) {
-  if (err) return err;
-  fs.write(file, '{"Hello": "World"}');
-});
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -21,17 +15,24 @@ app.get('/', function(request, response) {
 });
 
 app.get('/events', function(request, response) {
-  fs.readFile('events.json', function(err, events) {
-    if (err) return response.send(err);
-    response.send(events.toString());
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('SELECT * FROM events', function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.send('Error ' + err);
+      } else {
+        console.log(result);
+      }
+    })
   });
 });
 
 app.post('/events', function(request, response) {
-  fs.readFile('events.json', function(events) {
-    console.log(events);
-    console.log(request);
-  });
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    for (var key in client) console.log(key);
+      done();
+  })
 })
 
 app.listen(app.get('port'), function() {
