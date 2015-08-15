@@ -3,9 +3,10 @@ var express = require('express');
 var pg = require('pg');
 var app = express();
 
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
 app.use(bodyParser.json());
 
 app.set('port', (process.env.PORT || 5000));
