@@ -16,6 +16,8 @@ Result: JSON Array of `Event` objects.
  * `policy`: One of `"drop-in"`, `"arrive-at-start"`.
  * `note`: Other information, e.g. room #.
  * `tags`: An array of strings.
+ * `id`: An integer uniquely identifying the event.
+ * `description`: A long strong describing the event.
 
 ## `Time` object specification:
  * `type`: Exactly the string `"duration"`.
