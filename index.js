@@ -2,6 +2,8 @@ var express = require('express');
 var fs = require('fs');
 var app = express();
 
+// create 
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -15,14 +17,15 @@ app.get('/', function(request, response) {
 });
 
 app.get('/events', function(request, response) {
-  fs.readFile('events.json', function(events) {
-    response.json(events);
+  fs.readFile('events.json', function(err, events) {
+    response.send(events.toString());
   });
 });
 
 app.post('/events', function(request, response) {
   fs.readFile('events.json', function(events) {
     console.log(events);
+    console.log(request);
   });
 })
 
