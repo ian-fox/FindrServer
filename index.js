@@ -3,12 +3,11 @@ var express = require('express');
 var pg = require('pg');
 var app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
-
-var jsonParser = bodyParser.json();
-var ueParser = bodyParser.urlencoded({extended: false});
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -32,8 +31,8 @@ app.get('/events', function(request, response) {
   });
 });
 
-app.post('/events', ueParser, function(request, response) {
-  console.log(request);
+app.post('/events', function(request, response) {
+  console.log(request.body);
   request.event = {"hello": "world"};
   query = 'insert into events (event) values (\'' + JSON.stringify(request.event) + '\') returning id;';
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
