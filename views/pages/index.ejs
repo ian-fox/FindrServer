@@ -29,16 +29,16 @@
     <input type="number" id="lattitude">
     <input type="number" id="longitude"><br><br>
 
-    <button onclick="submit();">Submit</button><br><br>
+    <button onclick="submitForm();">Submit</button><br><br>
   </form>
 </div>
 <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
-function submit() {
+function submitForm() {
   object = {name: $('#name').val(), email: $('#email').val(), host: $('#host').val(), location: $('#location').val(), description: $('#description').val(), qualifications: $('#qualifications').val(), tags: $('#tags').val(), policy: $('#policy').val(), time: [Date.now(), Date.now() + 1000000], coordinates: [$('#lattitude').val(), $('#longitude').val()]}
-$.post('/events', {event: object}, function() {
-  console.log('success');
-})
+    $.post('events', {event: object}, function() {
+      console.log('success');
+    });
 }
 
 </script>
