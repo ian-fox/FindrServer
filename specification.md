@@ -26,7 +26,7 @@ id of newly created event
 ## `Event` object specification:
  * `host-name`: A name of the organization or person hosting the event.
  * `times`: An array of `Time` objects.
- * `qualifications`: An array of `Qualification` objects.
+ * `qualifications`: An array of strings.
  * `name`: The name of the event.
  * `contact`: An email address.
  * `location`: An address, room number, etc
@@ -41,7 +41,5 @@ id of newly created event
  * `start`: (for `duration`) The timestamp of the start time.
  * `end`: (for `duration`) The timestamp of the end time.
 
-## `Qualification` object specification:
-(not yet, leave qualifications array blank for now)
 
 POST /event
