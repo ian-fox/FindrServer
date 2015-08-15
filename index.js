@@ -47,7 +47,18 @@ app.post('/events', function(request, response) {
 });
 
 app.put('/events', function(request, response) {
-  request.event = {"hello": "world"};
+  query = 'update events set event=\'' + JSON.stringify(request.body.event) + '\' where id=' + request.body.id + ' returning id;';
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query(query, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.status(500).json('Error ' + err);
+      } else {
+        response.status(200).json(result.rows[0].id);
+      }
+    })
+  });
 });
 
 app.listen(app.get('port'), function() {
