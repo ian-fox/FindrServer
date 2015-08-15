@@ -1,10 +1,27 @@
 # REST API Specification
 
-GET `/events`:
+##GET `/events`:
 
 No parameters taken.
 
 Result: JSON Array of `Event` objects.
+
+##POST '/events':
+
+###Parameters: 
+event - JSON event object
+
+###Result: 
+id of newly created event
+
+##PUT '/events':
+
+###Parameters:  
+event - JSON event object 
+id - id representing te event to change
+
+###Result:
+id of newly created event
 
 ## `Event` object specification:
  * `host-name`: A name of the organization or person hosting the event.
