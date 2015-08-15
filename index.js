@@ -16,7 +16,6 @@ app.get('/', function(request, response) {
 
 app.get('/events', function(request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-    for (var key in client) console.log(key);
     client.query('SELECT * FROM events', function(err, result) {
       done();
       if (err) {
@@ -30,7 +29,18 @@ app.get('/events', function(request, response) {
 });
 
 app.post('/events', function(request, response) {
-
+  request.event = {"hello": "world"};
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    client.query('insert into events values (' + JSON.stringify(request.event) + ')', function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+        response.send('Error ' + err);
+      } else {
+        response.send("Success!"));
+      }
+    })
+  });
 })
 
 app.listen(app.get('port'), function() {
