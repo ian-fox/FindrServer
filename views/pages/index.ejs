@@ -32,7 +32,7 @@
     <button onclick="submitForm();">Submit</button><br><br>
   </form>
 </div>
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 <script>
 function submitForm() {
   object = {name: $('#name').val(), email: $('#email').val(), host: $('#host').val(), location: $('#location').val(), description: $('#description').val(), qualifications: $('#qualifications').val(), tags: $('#tags').val(), policy: $('#policy').val(), time: [Date.now(), Date.now() + 1000000], coordinates: [$('#lattitude').val(), $('#longitude').val()]}
