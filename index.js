@@ -1,9 +1,12 @@
 var bodyParser = require('body-parser');
 var express = require('express');
+var passport = require('passport');
 var pg = require('pg');
+
 var app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(allowCrossDomain);
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -29,7 +32,7 @@ app.get('/events', function(request, response) {
           return event.event;
         }));
       }
-    })
+    });
   });
 });
 
@@ -44,7 +47,7 @@ app.post('/events', function(request, response) {
       } else {
         response.status(200).json(result.rows[0].id);
       }
-    })
+    });
   });
 });
 
@@ -59,7 +62,7 @@ app.put('/events', function(request, response) {
       } else {
         response.status(200).json(result.rows[0].id);
       }
-    })
+    });
   });
 });
 

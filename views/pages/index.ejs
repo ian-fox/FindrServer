@@ -5,46 +5,15 @@
 </head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <body>
+  <div class="container">
+    <div class="jumbotron">
+      <h3>Coming Soon</h3>
+    </div>
+  </div>
+
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-<script>
-window.submitForm = function submitForm() {
-  var date = new Date($('#time').val());
-  date = date.getTime() / 1000;
-  object = {"host-name": $('#host-name').val(), name: $('#name').val(), email: $('#email').val(), host: $('#host').val(), location: $('#location').val(), description: $('#description').val(), qualifications: $('#qualifications').val(), tags: $('#tags').val(), policy: $('#policy').val(), time: [date, date + 1000000], coordinates: [$('#lattitude').val(), $('#longitude').val()]}
-    $.post('/events', {event: JSON.stringify(object)}, function() {
-      console.log('success');
-    });
-}
 
-</script>
-
-<div class="jumbotron container" style="text-align: center">
-    <h2>Plan an Event!</h2>
-    Event Name: <br>
-    <input type="text" id="name"><br><br>
-    Email: <br>
-    <input type="text" id="email"><br><br>
-    Host: <br>
-    <input type="text" id="host-name"><br><br>
-    Location: <br>
-    <input type="text" id="location"><br><br>
-    Description<br>
-    <input type="text" id="description"><br><br>
-    Qualifications<br>
-    <input type="text" id="qualifications"><br><br>
-    Tags<br>
-    <input type="text" id="tags"><br><br>
-    Policy<br>
-    <input type="text" id="policy"><br><br>
-    Time<br>
-    <input type="datetime-local" id="time"><br><br>
-    Coordinates:<br>
-    <input type="number" id="lattitude">
-    <input type="number" id="longitude"><br><br>
-
-    <button onclick="submitForm();">Submit</button><br><br>
-</div>
 
 </body>
 </html>
