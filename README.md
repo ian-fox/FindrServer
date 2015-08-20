@@ -1,3 +1,9 @@
+# Findr Server
+
+This repository contains the official Findr server. For information on the REST API, please see specification.md.
+
+Original README below.
+
 # node-js-getting-started
 
 A barebones Node.js app using [Express 4](http://expressjs.com/).
