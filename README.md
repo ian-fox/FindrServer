@@ -1,5 +1,7 @@
 # Findr Server
 
+[![Join the chat at https://gitter.im/ian-fox/FindrServer](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ian-fox/FindrServer?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This repository contains the official Findr server. For information on the REST API, please see specification.md.
 
 Original README below.
