@@ -28,11 +28,12 @@ id of newly created event
 ## `Event` object specification:
  * `host-name`: A name of the organization or person hosting the event.
  * `times`: An array of `Time` objects. (NB: currently an array of two numbers.)
+ * `time` (deprecated): See `times`.
  * `qualifications`: An array of strings. (NB: currently one string)
  * `name`: The name of the event.
  * `contact`: An email address.
  * `location`: An address, room number, etc
- * `coordinates`: A [latitude, longitude] pair. (NB: currently strings, not numbers.)
+ * `coordinates`: A `Coordinate` object (deprecated: a [`lat`, `lng`] pair of strings).
  * `policy`: One of `"drop-in"`, `"arrive-at-start"`.
  * `tags`: An array of strings. (NB: currently a string)
  * `description`: A short description of the event.
@@ -42,3 +43,7 @@ id of newly created event
  * `type`: Exactly the string `"duration"`.
  * `start`: (for `duration`) The timestamp of the start time.
  * `end`: (for `duration`) The timestamp of the end time.
+
+## `Coordinate` object specification:
+ * `lat`: A number representing latitude.
+ * `lng`: A number representing longitude.
